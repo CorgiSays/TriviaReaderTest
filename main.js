@@ -38,7 +38,7 @@ async function generateTriviaQuestion() {
     console.log(topic);
         const openaiData = {
             model: 'gpt-3.5-turbo-instruct',
-            prompt: `Come up with a ${difficulty} trivia question about ${topic}. The question should be in the style of Reach for the Top trivia questions. The answer should be short, MUST be attached below, and cannot be none. Format questions like 'Question: (question)\n\nAnswer: (answer)'. Do not repeat questions.`,
+            prompt: `Come up with a ${difficulty} trivia question about ${topic}. The question should be in the style of Reach for the Top trivia questions. The answer should be short, MUST be attached below, and cannot be none, blank, or any variation of it. Format questions like 'Question: (question)\n\nAnswer: (answer)'. Do not repeat questions.`,
             max_tokens: 200
         };
 
@@ -59,11 +59,14 @@ async function generateTriviaQuestion() {
                 catalogueContainer.innerHTML = letAct
                 await new Promise(resolve => setTimeout(resolve, 250));
                 if (stop) {
+                    document.getElementById("answersOutput").innerHTML = qna[1];
                     break;
                 }
             }
         }
-        stop = false;
 
-    console.log(qna[1]);
+    setTimeout(function(){
+        document.getElementById("answersOutput").innerHTML = qna[1];
+    }, 5000);
+        stop = false;
 }

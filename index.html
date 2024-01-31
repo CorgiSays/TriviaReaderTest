@@ -27,8 +27,12 @@
 </div>
 <br>
 <button onclick="halt()" class="buzzbutton">BUZZ</button>
-
-<button onclick="showApiKeyPopup()">Enter API Key</button>
+<br><br>
+<div id="answersOutput">
+    <p> </p>
+</div>
+<br><br>
+<a onclick="showApiKeyPopup()">Enter API Key</a>
 
 <div id="popupOverlay">
     <div id="apiKeyPopup">
@@ -36,7 +40,6 @@
         <input type="password" id="popupApiKey" placeholder="Enter your API key">
         <br><br>
         <button onclick="savePopupApiKey()">Save</button>
-        <button onclick="closeApiKeyPopup()">Cancel</button>
     </div>
 </div>
 </body>
@@ -93,6 +96,7 @@
     #questionsActive {
         background-color: #EEEEEE;
         padding: 3%;
+        height: 100px;
     }
     .buzzbutton {
         border-radius: 100%;
@@ -120,6 +124,11 @@
         padding: 20px;
         border-radius: 10px;
         text-align: center;
+    }
+    #answersOutput {
+        height: 50px;
+        padding: 3%;
+        background-color: #EEEEEE;
     }
 </style>
 
